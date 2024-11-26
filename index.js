@@ -4,13 +4,14 @@ require("dotenv").config()
 
 const app = express()
 
+const port = process.env.PORT || 3000
 const DBConnectionString = process.env.MONGODB_URI
 
 app.get("/", (req, res) => {
     res.send("This is from node API")
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server is running on port 3000")
 })
 
