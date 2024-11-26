@@ -71,6 +71,20 @@ app.put("/api/recipes/:id", async (req, res) => {
     }
 })
 
+// Delete recipe
+app.delete("/api/recipes/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const recipe = await Recipe.findByIdAndDelete(id)
+        if (!recipe) {
+            res.status(404).json({ message: "The recipe you are trying to delete has not been found !" })
+        }
+        res.status(200).json({ message: "Recipe successfully deleted !" })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
 mongoose.connect(DBConnectionString)
 .then(() => {
     console.log("Connected to database !")
