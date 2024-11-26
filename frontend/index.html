@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Application</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CRUD Application</h1>
+    <div class="form-container">
+      <h2>Add/Edit Item</h2>
+      <form id="crud-form">
+        <input type="hidden" id="item-id" />
+        <label for="item-name">Name:</label>
+        <input type="text" id="item-name" required />
+        <label for="item-description">Description:</label>
+        <textarea id="item-description" required></textarea>
+        <button type="submit" id="submit-btn">Add</button>
+      </form>
+    </div>
+    <div class="list-container">
+      <h2>Item List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="item-list">
+          <!-- Items will be dynamically rendered here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
