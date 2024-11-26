@@ -3,40 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD Application</title>
+  <title>Recipe App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>CRUD Application</h1>
+    <h1>Recipe Manager</h1>
+
+    <!-- Recipe Form -->
     <div class="form-container">
-      <h2>Add/Edit Item</h2>
-      <form id="crud-form">
-        <input type="hidden" id="item-id" />
-        <label for="item-name">Name:</label>
-        <input type="text" id="item-name" required />
-        <label for="item-description">Description:</label>
-        <textarea id="item-description" required></textarea>
-        <button type="submit" id="submit-btn">Add</button>
+      <h2>Add/Edit Recipe</h2>
+      <form id="recipe-form">
+        <input type="hidden" id="recipe-id" />
+        
+        <label for="recipe-title">Title:</label>
+        <input type="text" id="recipe-title" placeholder="Recipe Title" required />
+        
+        <label for="recipe-ingredients">Ingredients:</label>
+        <textarea id="recipe-ingredients" placeholder="List ingredients separated by commas" required></textarea>
+        
+        <label for="recipe-instructions">Instructions:</label>
+        <textarea id="recipe-instructions" placeholder="Step-by-step instructions" required></textarea>
+        
+        <button type="submit" id="submit-btn">Add Recipe</button>
       </form>
     </div>
+
+    <!-- Recipe List -->
     <div class="list-container">
-      <h2>Item List</h2>
+      <h2>Recipe List</h2>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Title</th>
+            <th>Ingredients</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody id="item-list">
-          <!-- Items will be dynamically rendered here -->
+        <tbody id="recipe-list">
+          <!-- Recipes will be dynamically rendered here -->
         </tbody>
       </table>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
