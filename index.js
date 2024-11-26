@@ -56,6 +56,21 @@ app.post("/api/recipes", async (req, res) => {
     }
 })
 
+// Update recipe
+app.put("/api/recipes/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const recipe = await Recipe.findByIdAndUpdate(id, req.body)
+        if (!recipe) {
+            res.status(404).json({ message: "The recipe you are looking for has not been found !" })
+        }
+        const updatedRecipe = await Recipe.findById(id)
+        res.status(200).json(updatedRecipe)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
 mongoose.connect(DBConnectionString)
 .then(() => {
     console.log("Connected to database !")
